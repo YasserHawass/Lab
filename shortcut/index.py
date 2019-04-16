@@ -34,7 +34,7 @@
 #         current.remove(key)
 #################################################################################################################
 from pynput import keyboard
-from subprocess import call
+#from subprocess import call
 
 # The key combination to check
 COMBINATIONS = [
@@ -44,7 +44,7 @@ COMBINATIONS = [
 
 def VolumeUp():
     try:
-            call(["amixer", "-D", "pulse", "sset", "Master", "5%+"])
+            #call(["amixer", "-D", "pulse", "sset", "Master", "5%+"])
     except ValueError:
         pass
 
