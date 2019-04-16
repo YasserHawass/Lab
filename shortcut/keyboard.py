@@ -90,10 +90,24 @@ def ReleaseKey(hexKeyCode):
               ki=KEYBDINPUT(wVk=hexKeyCode,
                             dwFlags=KEYEVENTF_KEYUP))
     user32.SendInput(1, ctypes.byref(x), ctypes.sizeof(x))
-    
-def AltTab():
+
+# Passed Functions
+
+def VolumeUp():
     PressKey(VK_VOLUME_UP)
     ReleaseKey(VK_VOLUME_UP)
+    print("Volume Up")
+
+def VolumeDown():
+    PressKey(VK_VOLUME_DOWN)
+    ReleaseKey(VK_VOLUME_DOWN)
+    print("Volume Down")
+
+def Mute():
+    PressKey(VK_VOLUME_MUTE)
+    ReleaseKey(VK_VOLUME_MUTE)
+    print("Muted")
+
 # def AltTab():
 #     """Press Alt+Tab and hold Alt key for 2 seconds
 #     in order to see the overlay.
