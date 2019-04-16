@@ -34,6 +34,7 @@
 #         current.remove(key)
 #################################################################################################################
 from pynput import keyboard
+from subprocess import call
 
 # The key combination to check
 COMBINATIONS = [
@@ -41,11 +42,18 @@ COMBINATIONS = [
     {keyboard.Key.shift, keyboard.KeyCode(char='A')}
 ]
 
+def VolumeUp():
+    try:
+            call(["amixer", "-D", "pulse", "sset", "Master", "5%+"])
+    except ValueError:
+        pass
+
 # The currently active modifiers
 current = set()
 
 def execute():
     print ("Do Something")
+    VolumeUp()
 
 def on_press(key):
     if any([key in COMBO for COMBO in COMBINATIONS]):
