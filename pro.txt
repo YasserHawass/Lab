@@ -1,0 +1,16 @@
+- weather scrapper
+
+- facebook posts into xml
+
+- any stalkin api ?
+
+- sensors to usb ?
+    protcol: arduino to serial then to commands and such
+
+
+- cluster accordin to prios
+- cors jarvis
+
+
+- tdl with spaced repetition concept like anki and such ?
+    - maybe autonomus in csv and such
