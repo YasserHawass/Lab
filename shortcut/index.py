@@ -19,10 +19,11 @@ MUTE = [
     {pynputkeyboard.Key.shift, pynputkeyboard.KeyCode(char='Q')}
 ]
 
-
+#http://cherrytree.at/misc/vk.htm
 # The currently active modifiers
 current = set()
-def on_press(key
+def on_press(key):
+    #print(key)                                                       #recorder for keystrokes
     #update here 1
     if any([key in COMBO for COMBO in COMBINATIONS]) or any([key in COMBO for COMBO in COMBINATIONZ]) or any([key in COMBO for COMBO in MUTE]):
         current.add(key)
