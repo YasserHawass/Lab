@@ -7,10 +7,15 @@
 - sensors to usb ?
     protcol: arduino to serial then to commands and such
 
+- shortcut with new button?           middle button                        +++++
 
-- cluster accordin to prios
+- cluster accordin to prios, indecies also
 - cors jarvis
 
 
 - tdl with spaced repetition concept like anki and such ?
     - maybe autonomus in csv and such
+
+
+
+- fees with voice
