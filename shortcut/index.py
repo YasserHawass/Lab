@@ -19,13 +19,17 @@ MUTE = [
     {pynputkeyboard.Key.shift, pynputkeyboard.KeyCode(char='Q')}
 ]
 
+MEDIA = [
+    {pynputkeyboard.Key.shift, pynputkeyboard.KeyCode(char='1')}
+]
+
 #http://cherrytree.at/misc/vk.htm
 # The currently active modifiers
 current = set()
 def on_press(key):
     #print(key)                                                       #recorder for keystrokes
     #update here 1
-    if any([key in COMBO for COMBO in COMBINATIONS]) or any([key in COMBO for COMBO in COMBINATIONZ]) or any([key in COMBO for COMBO in MUTE]):
+    if any([key in COMBO for COMBO in COMBINATIONS]) or any([key in COMBO for COMBO in COMBINATIONZ]) or any([key in COMBO for COMBO in MUTE]) or any([key in COMBO for COMBO in MEDIA]):
         current.add(key)
         #update here 2, add the func in keyboard 4
         if any(all(k in current for k in COMBO) for COMBO in COMBINATIONS):
@@ -34,15 +38,20 @@ def on_press(key):
             keyboard.VolumeDown()
         elif any(all(k in current for k in COMBO) for COMBO in MUTE):
             keyboard.Mute()
+        elif any(all(k in current for k in COMBO) for COMBO in MEDIA):
+            keyboard.Play()
 
 def on_release(key):
     #update here 3
-    if any([key in COMBO for COMBO in COMBINATIONS]):
+    if any([key in COMBO for COMBO in COMBINATIONS]) or any([key in COMBO for COMBO in COMBINATIONZ]) or any([key in COMBO for COMBO in MUTE]) or any([key in COMBO for COMBO in MEDIA]):
         current.remove(key)
-    elif any([key in COMBO for COMBO in COMBINATIONZ]):
-        current.remove(key)
-    elif any([key in COMBO for COMBO in MUTE]):
-        current.remove(key)
+    #keep it for later use and such
+    # elif any([key in COMBO for COMBO in COMBINATIONZ]):
+    #     current.remove(key)
+    # elif any([key in COMBO for COMBO in MUTE]):
+    #     current.remove(key)
+    # elif any([key in COMBO for COMBO in MEDIA]):
+    #     current.remove(key)
 
 with pynputkeyboard.Listener(on_press=on_press, on_release=on_release) as listener:
     listener.join()

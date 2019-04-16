@@ -24,7 +24,7 @@ MAPVK_VK_TO_VSC = 0
 VK_VOLUME_MUTE = 0xAD           # Volume Mute key
 VK_VOLUME_DOWN = 0xAE           # Volume Down key
 VK_VOLUME_UP = 0xAF             # Volume Up key
-
+VK_MEDIA_PLAY_PAUSE = 0xB3      # Play/Pause Media key
 # C struct definitions
 
 wintypes.ULONG_PTR = wintypes.WPARAM
@@ -107,6 +107,11 @@ def Mute():
     PressKey(VK_VOLUME_MUTE)
     ReleaseKey(VK_VOLUME_MUTE)
     print("Muted")
+
+def Play():
+    PressKey(VK_MEDIA_PLAY_PAUSE)
+    ReleaseKey(VK_MEDIA_PLAY_PAUSE)
+    print("Play/Pause")
 
 # def AltTab():
 #     """Press Alt+Tab and hold Alt key for 2 seconds
