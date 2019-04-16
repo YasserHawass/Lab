@@ -1,2 +1,2 @@
 import keyboard
-keyboard.AltTab()
+keyboard.Mute()
