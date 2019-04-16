@@ -3,12 +3,12 @@ current version:
 
 
 updates:
-  volumeup with mouse shift A/a
-  VolumeDown with shift Z/z
-  VolumeMute with shift Q/q
+  volumeup with mouse shift A/a                                            XXXXX
+  VolumeDown with shift Z/z                                                XXXXX
+  VolumeMute with shift Q/q                                                XXXXX
 
 
-  then with mouse button instead of shift
+  then with mouse button instead of shift                                 OOOOO     maybe need to check for (multi)/inputs from ctypes
 
 
 
