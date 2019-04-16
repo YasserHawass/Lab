@@ -1,0 +1,16 @@
+current version:
+  volumeup with shift A/a
+
+
+updates:
+  volumeup with mouse shift A/a
+  VolumeDown with shift Z/z
+  VolumeMute with shift Q/q
+
+
+  then with mouse button instead of shift
+
+
+
+
+either use ctypes or pynput
