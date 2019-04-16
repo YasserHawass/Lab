@@ -44,6 +44,7 @@ COMBINATIONS = [
 
 def VolumeUp():
     try:
+        print("VolumeUp")
             #call(["amixer", "-D", "pulse", "sset", "Master", "5%+"])
     except ValueError:
         pass
