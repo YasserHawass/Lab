@@ -1,2 +1,5 @@
 - python with mcu, and libraries impls and such
 - mcu and sensors and such
+
+
+- prog challenges and such like js                                         +++
