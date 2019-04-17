@@ -3,22 +3,20 @@ import keyboard         #external file
 
 # The key combination to check
 COMBINATIONS = [
-    {pynputkeyboard.Key.shift, pynputkeyboard.KeyCode(char='a')},
-    {pynputkeyboard.Key.shift, pynputkeyboard.KeyCode(char='A')}
+    {pynputkeyboard.Key.ctrl_r, pynputkeyboard.Key.up},
+    {pynputkeyboard.Key.ctrl_l, pynputkeyboard.Key.up}
 ]
 
 COMBINATIONZ = [
-    {pynputkeyboard.Key.shift, pynputkeyboard.KeyCode(char='z')},
-    {pynputkeyboard.Key.shift, pynputkeyboard.KeyCode(char='Z')}
+    {pynputkeyboard.Key.ctrl_r, pynputkeyboard.Key.down}
 ]
 
 MUTE = [
-    {pynputkeyboard.Key.shift, pynputkeyboard.KeyCode(char='q')},
-    {pynputkeyboard.Key.shift, pynputkeyboard.KeyCode(char='Q')}
+    {pynputkeyboard.Key.ctrl_r, pynputkeyboard.Key.left}
 ]
 
 MEDIA = [
-    {pynputkeyboard.Key.shift, pynputkeyboard.KeyCode(char='1')}
+    {pynputkeyboard.Key.ctrl_r, pynputkeyboard.Key.right}
 ]
 
 #http://cherrytree.at/misc/vk.htm
@@ -47,7 +45,7 @@ with pynputkeyboard.Listener(on_press=on_press, on_release=on_release) as listen
 
 
 #https://nitratine.net/blog/post/how-to-make-hotkeys-in-python/
-# from pynput import keyboard as pynputkeyboard
+# from pynput import keyboard as pynputkeyboard     class pynput.keyboard.KeyCode(vk=None, char=None, is_dead=False)
 # import keyboard         #external file
 #
 #
