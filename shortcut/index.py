@@ -1,5 +1,8 @@
 from pynput import keyboard as pynputkeyboard
 import keyboard         #external file
+from pynput import mouse as pynputmouse
+
+
 
 # The key combination to check
 COMBINATIONS = [
@@ -19,9 +22,13 @@ MEDIA = [
     {pynputkeyboard.Key.ctrl_r, pynputkeyboard.Key.right}
 ]
 
+TEST = {pynputmouse.Button.middle, pynputmouse.Button.right}
+
 #http://cherrytree.at/misc/vk.htm
 # The currently active modifiers
 current = set()
+currentm = set()
+
 def on_press(key):
     #update here 1
     if any([key in COMBO for COMBO in COMBINATIONS]) or any([key in COMBO for COMBO in COMBINATIONZ]) or any([key in COMBO for COMBO in MUTE]) or any([key in COMBO for COMBO in MEDIA]):
@@ -40,8 +47,19 @@ def on_release(key):
     #update here 3
     if any([key in COMBO for COMBO in COMBINATIONS]) or any([key in COMBO for COMBO in COMBINATIONZ]) or any([key in COMBO for COMBO in MUTE]) or any([key in COMBO for COMBO in MEDIA]):
         current.remove(key)
+
+def on_click(x, y, button, pressed):
+    print(button)
+    if pressed and button in test:
+        currentm.add(button)
+        if all(k in currentm for k in TEST):
+            print ('middleX')
+            currentm.clear()
+
 with pynputkeyboard.Listener(on_press=on_press, on_release=on_release) as listener:
     listener.join()
+with pynputmouse.Listener(on_click=on_click) as MouseListener:
+    MouseListener.join()
 
 
 #https://nitratine.net/blog/post/how-to-make-hotkeys-in-python/
