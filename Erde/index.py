@@ -14,11 +14,13 @@ erdeSerial = serial.Serial('com3', 9600)
 top = tkinter.Tk()
 
 def DebugA():
+    #print all input sent, and then decode them into string, and strip '\r\n' then list comprhension the output with int()
     print([int(variable) for variable in str(erdeSerial.readline().decode().strip('\r\n')).split('/')])
-
 def Notificaion():
+    #send bytes with value of 50
     erdeSerial.write(b'50')
 def Reset():
+    #send bytes with value of 1000, default x"D
     erdeSerial.write(b'1000')
 
 NotificaionButton = tkinter.Button(top, text ="Notificaion!", command = Notificaion)
