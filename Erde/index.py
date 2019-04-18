@@ -14,7 +14,7 @@ erdeSerial = serial.Serial('com3', 9600)
 top = tkinter.Tk()
 
 def DebugA():
-    print(str(erdeSerial.readline().decode().strip('\r\n')).split('/'))
+    print([int(variable) for variable in str(erdeSerial.readline().decode().strip('\r\n')).split('/')])
 
 def Notificaion():
     erdeSerial.write(b'50')
