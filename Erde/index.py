@@ -10,30 +10,35 @@ from time import sleep
 
 # Enter your COM port in the below line
 erdeSerial = serial.Serial('com3', 9600)
-sleep(2)
+# sleep(2)
 # print (erdeSerial.readline(erdeSerial.inWaiting()))
 
 top = tkinter.Tk()
 
-def TrunOn():
-  erdeSerial.write(b'50\r\n')
+def DebugA():
+    print(erdeSerial.readline().decode())
+
+def Notificaion():
+    erdeSerial.write(b'50')
   # sleep(0.1)
   # data = erdeSerial.readline(erdeSerial.inWaiting())
   # label1.config(text=str(data))
 
-def Turnoff():
+def Reset():
   # erdeSerial.write((255, 'utf-8'))
-  erdeSerial.write(b'1000\r\n')
+  erdeSerial.write(b'1000')
   # print(bytes(1000))
   # sleep(0.1)
   # data = erdeSerial.readline(erdeSerial.inWaiting())
   # label1.config(text=str(data))
 
-OnButton = tkinter.Button(top, text ="LED ON", command = TrunOn)
-OffButton = tkinter.Button(top, text ="LED OFF", command = Turnoff)
-label1 = Label(top, fg="green")
+OnButton = tkinter.Button(top, text ="LED ON", command = Notificaion)
+OffButton = tkinter.Button(top, text ="LED OFF", command = Reset)
+DebugAButton = tkinter.Button(top, text ="debug", command = DebugA)
+# label1 = Label(top, fg="green")
 
-label1.pack()
-OnButton.pack()
-OffButton.pack()
+# label1.pack()
+Notificaion.pack()
+Reset.pack()
+DebugAButton.pack()
 top.mainloop()

@@ -26,10 +26,9 @@ void loop() {
     period = Serial.parseInt();    //read, write, print
     Serial.print(period);   //to check if recieved
     //Serial.println(" recieved"); //debug
-    
   }
   //period = Serial.parseInt();    //read, write, print
-  Serial.println(period);           //debug
+  //Serial.println(period);           //debug
   digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(period);                       // wait for a second
   digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
