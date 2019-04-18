@@ -8,7 +8,7 @@ from tkinter import *
 import serial
 from time import sleep
 
-#Classes of tkinter, and serial
+# Classes of tkinter, and serial
 # Enter your COM port in the below line
 erdeSerial = serial.Serial('com3', 9600)
 top = tkinter.Tk()
