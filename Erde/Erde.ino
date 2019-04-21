@@ -13,10 +13,9 @@
 #define PIN_LED2 8
 #define PIN_LED3 9
 #define PIN_LED4 10
-
-//long period = 1000;  //default blink period
+// sensor for analog signals
 int sensorValue;
-
+// Blinker to send blinks via digital pins, with 2 methods, update, and check
 class Blinker {
   private:
     byte pinLED;
@@ -54,12 +53,15 @@ class Blinker {
         digitalWrite(pinLED, ledState);
       }
     }
+
+    //updates the on off period
     void update(unsigned long period){
       this->timeLedOn = period;
       this->timeLedOff = period;
     }
 };
 
+//initalize 4 blinkers aka 4 pins
 Blinker blink1 = Blinker(PIN_LED1, 1000, 1000);
 Blinker blink2 = Blinker(PIN_LED2, 1000, 1000);
 Blinker blink3 = Blinker(PIN_LED3, 1000, 1000);
@@ -75,7 +77,8 @@ void setup() {
 void loop() {
   if (Serial.available()) {
     String message = Serial.readString(); // no need to string it readString() it
-    int pina = message.substring(0, 2).toInt();
+    int pina = message.substring(0, 2).toInt(); //tdl - remove that pls
+    //optmize accorin also
     if (pina = 1){
       blink1.update(message.substring(2).toInt());    //read, write, print
     }
@@ -88,11 +91,9 @@ void loop() {
     if (pina = 4){
       blink4.update(message.substring(2).toInt());    //read, write, print
     }
-    //char input = Serial.read();
-    //blink3.update(Serial.parseInt());    //read, write, print
-    //Serial.print(period);   //to check if recieved
-    //Serial.println(" recieved"); //debug
+    //Serial.print(period);   //to check if recieved.
   }
+  //print analog, tdl.
   Serial.print(analogRead(5));
   Serial.print("/");
   Serial.print(analogRead(4));
@@ -110,11 +111,4 @@ void loop() {
   blink2.check();
   blink3.check();
   blink4.check();
-  //period = Serial.parseInt();    //read, write, print
-  //Serial.println(period);           //debug
-  //digitalWrite(9, HIGH);   // turn the LED on (HIGH is the voltage level)
-  //delay(period);                       // wait for a second
-  //digitalWrite(9, LOW);    // turn the LED off by making the voltage LOW
-  //delay(period);                       // wait for a second
 }
-
