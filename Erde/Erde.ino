@@ -55,7 +55,7 @@ class Blinker {
     }
 
     //updates the on off period
-    void update(unsigned long period){
+    void update(unsigned int period){
       this->timeLedOn = period;
       this->timeLedOff = period;
     }
@@ -79,20 +79,23 @@ void loop() {
     String message = Serial.readString(); // no need to string it readString() it
     int pina = message.substring(0, 2).toInt(); //tdl - remove that pls
     //optmize accorin also
-    if (pina = 1){
-      blink1.update(message.substring(2).toInt());    //read, write, print
-    }
-    if (pina = 2){
-      blink2.update(message.substring(2).toInt());    //read, write, print
-    }
-    if (pina = 3){
-      blink3.update(message.substring(2).toInt());    //read, write, print
-    }
-    if (pina = 4){
-      blink4.update(message.substring(2).toInt());    //read, write, print
-    }
+    switch (pina){
+      case 1:
+        blink1.update(message.substring(2).toInt());    //read, write, print
+        break;
+      case 2:
+        blink2.update(message.substring(2).toInt());    //read, write, print
+        break;
+      case 3:
+        blink3.update(message.substring(2).toInt());    //read, write, print
+        break;
+      case 4:
+        blink4.update(message.substring(2).toInt());    //read, write, print
+        break;
+      }
     //Serial.print(period);   //to check if recieved.
   }
+
   //print analog, tdl.
   Serial.print(analogRead(5));
   Serial.print("/");
@@ -106,6 +109,7 @@ void loop() {
   Serial.print("/");
   Serial.print(analogRead(0));
   Serial.println();
+
   //Dirty check for all bliners
   blink1.check();
   blink2.check();
