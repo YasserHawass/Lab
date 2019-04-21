@@ -18,10 +18,10 @@ def DebugA():
     print([int(variable) for variable in str(erdeSerial.readline().decode().strip('\r\n')).split('/')])
 def Notificaion():
     #send bytes with value of 50
-    erdeSerial.write(b'50')
+    erdeSerial.write(b'3 100')
 def Reset():
     #send bytes with value of 1000, default x"D
-    erdeSerial.write(b'1000')
+    erdeSerial.write(b'3 1000')
 
 NotificaionButton = tkinter.Button(top, text ="Notificaion!", command = Notificaion)
 ResetButton = tkinter.Button(top, text ="Reset", command = Reset)
