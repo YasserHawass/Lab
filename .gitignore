@@ -46,6 +46,6 @@ cover/*
 MANIFEST
 
 # Per-project virtualenvs
-.veno/
+veno/
 
 weather/apikeys.py
