@@ -1,6 +1,6 @@
 import requests
 import json
-from apikeys import w_apikey
+from .apikeys import w_apikey
 
 class weatherInstance():
     def __init__(self, q = 'mansoura, egypt'):
@@ -38,12 +38,13 @@ class weatherInstance():
         print(self.datas['data']['weather'][0]['maxtempC'],
                 self.datas['data']['weather'][0]['mintempC'],
                 self.datas['data']['weather'][0]['uvIndex'],)
-instance1 = weatherInstance('damietta' + ', egypt')
-instance2 = weatherInstance()
-instance3 = weatherInstance('alexandria' + ', egypt')
-instance1.checkToday()
-instance2.checkToday()
-instance3.checkCurrent()
+if __name__ == "__main__":
+	instance1 = weatherInstance('damietta' + ', egypt')
+	instance2 = weatherInstance()
+	instance3 = weatherInstance('alexandria' + ', egypt')
+	instance1.checkToday()
+	instance2.checkToday()
+	instance3.checkCurrent()
 
 # api_token = 'your_api_token'
 # api_url_base = 'https://api.digitalocean.com/v2/'
